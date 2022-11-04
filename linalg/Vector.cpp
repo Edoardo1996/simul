@@ -47,14 +47,6 @@ double& Vector::operator[](int i)
 } 
 
 // Overloading square bracket operator
-double& Vector::operator[](int i)
-{
-    assert(i > -1);
-    assert(i < mSize);
-    return mData[i];
-} 
-
-// Overloading square bracket operator
 double& Vector::operator()(int i)
 {
     assert(i > 0);

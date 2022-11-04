@@ -15,8 +15,8 @@ public:
     double CalculateNorm(int p=2) const;  // p-norm
     void CheckIndex(int i); // Error handling
     
-    double& Vector::operator[](int i); // Zero-based indexing
-    double& Vector::operator()(int i); // One-based indexing
+    double& operator[](int i); // Zero-based indexing
+    double& operator()(int i); // One-based indexing
     Vector& operator=(const Vector& otherVector);
     Vector operator+() const;
     Vector operator-() const;
