@@ -186,6 +186,20 @@ Vector operator*(const Vector &vec, const Matrix &mat)
    return new_vector;
 }
 
+// Output operator
+std::ostream& operator<< (std::ostream& output, const Matrix& mat)
+{
+    for (int i{0}; i<mat.GetNumRows(); i++)
+    {
+        for (int j{0}; j<mat.GetNumCols(); j++)
+        {
+            output << mat.mData[i][j] << " ";
+        }
+        if (i != mat.GetNumRows()-1) {output << std::endl;}        
+    }
+    return output;
+}
+
 // Determinant of matrix (recursion)
 double Matrix::CalculateDeterminant() const
 {

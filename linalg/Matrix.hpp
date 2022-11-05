@@ -25,6 +25,8 @@ public:
     Matrix operator* (double n) const;
     // Determinant calculation (recursively)
     double CalculateDeterminant() const;
+    // insertion operator
+    friend std::ostream& operator<< (std::ostream& output, const Matrix& mat);
     // declare vector multiplication friendship
     friend Vector operator*(const Matrix& mat, const Vector& vec);
     friend Vector operator*(const Vector& vec, const Matrix& mat);

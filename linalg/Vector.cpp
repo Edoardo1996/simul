@@ -130,7 +130,6 @@ std::ostream& operator<<(std::ostream& output, const Vector& v)
     {
         output << v.mData[i] << " ";
     }
-    output << std::endl;
     return output;
 }
 

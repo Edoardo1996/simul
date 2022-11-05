@@ -6,7 +6,7 @@
 int main()
 { 
     Vector v(3);
-    Matrix m(2, 2);
+    Matrix m(5, 5);
     v[0] = 1;
     std::cout << v << std::endl;
     std::cout << m << std::endl;
