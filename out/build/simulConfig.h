@@ -1,2 +1,0 @@
-#define SIMUL_VERSION_MAJOR 
-#define SIMUL_VERSION_MINOR 
