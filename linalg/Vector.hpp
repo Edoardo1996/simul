@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ostream>
+
 class Vector {
 private:
     double* mData; // Data of vector

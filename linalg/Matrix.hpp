@@ -7,11 +7,10 @@ class Matrix
 {
 private:
     double** mData; 
-    int mNumRows;
-    int mNumCols;
+    int mNumRows, mNumCols;
 public:
-    Matrix(int rows, int cols); // Constructor
     Matrix(const Matrix& otherMatrix); // Copy-constructor
+    Matrix(int rows, int cols); // Constructor
     ~Matrix(); // Destructor
     int GetNumRows() const;
     int GetNumCols() const;

@@ -1,1 +1,1 @@
-add_library(linalg Vector.cpp Matrix.hpp Vector.hpp Matrix.cpp)
+add_library(linalg Vector.cpp Matrix.hpp Vector.hpp Matrix.cpp LinSys.hpp LinSys.hpp)

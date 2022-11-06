@@ -3,6 +3,24 @@
 #include <cmath>
 #include "Matrix.hpp"
 
+Matrix::Matrix(const Matrix& otherMatrix)
+{
+    mNumRows = otherMatrix.mNumRows;
+    mNumCols = otherMatrix.mNumCols;
+    mData = new double* [mNumRows];
+    for (int i{0}; i < mNumRows; i++)
+    {
+        mData[i] = new double [mNumCols];
+    }
+    for (int i{0}; i < mNumRows; i++)
+    {
+        for (int j{0}; j < mNumCols; j++)
+        {
+            mData[i][j] = otherMatrix.mData[i][j];
+        }
+    }
+}
+
 Matrix::Matrix(int rows, int cols)
 {
     assert(rows > 0);
@@ -10,33 +28,15 @@ Matrix::Matrix(int rows, int cols)
     mNumRows = rows;
     mNumCols = cols;
     mData = new double *[mNumRows];
-    for (int i{0}; i < mNumCols; i++)
+    for (int i{0}; i < mNumRows; i++)
     {
-        mData[i] = new double[mNumCols];
+        mData[i] = new double [mNumCols];
     }
-    for (int i = 0; i < mNumRows; i++)
+    for (int i {0}; i < mNumRows; i++)
     {
-        for (int j = 0; j < mNumCols; j++)
+        for (int j {0}; j < mNumCols; j++)
         {
             mData[i][j] = 0.0;
-        }
-    }
-}
-
-Matrix::Matrix(const Matrix &otherMatrix)
-{
-    mNumRows = otherMatrix.mNumRows;
-    mNumCols = otherMatrix.mNumCols;
-    mData = new double *[mNumRows];
-    for (int i{0}; i < mNumRows; i++)
-    {
-        mData[i] = new double[mNumCols];
-    }
-    for (int i{0}; i < mNumRows; i++)
-    {
-        for (int j{0}; j < mNumCols; j++)
-        {
-            mData[i][j] = otherMatrix.mData[i][j];
         }
     }
 }
