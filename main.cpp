@@ -1,21 +1,37 @@
-#include <iostream>
-#include "Vector.hpp"
-#include "Matrix.hpp"
+#define _USE_MATH_DEFINES
 
+#include <cmath>
+#include <string>
+#include "BvpOde.hpp"
 
-int main()
-{ 
-    Matrix square(5,5);
-    Matrix nonsquare(7, 13);
+double model_prob_1_rhs(double x){return 1.0;}
+double model_prob_2_rhs(double x){return 34.0*sin(x);}
 
-    std::cout << square.GetNumCols() << std::endl;
-    Vector vec(25);
+int main(int argc, char* argv[])
+{
+    SecondOrderOde ode_mp1(-1.0, 0.0, 0.0, 
+                           model_prob_1_rhs,
+                           0.0, 1.0);
+    BoundaryConditions bc_mp1;
+    bc_mp1.SetLhsDirichletBc(0.0);
+    bc_mp1.SetRhsDirichletBc(0.0);
 
-    std::cout << vec.CalculateNorm() << std::endl;
-    std::cout << vec.GetSize() << std::endl;
+    BvpOde bvpode_mp1(&ode_mp1, &bc_mp1, 101);
+    bvpode_mp1.SetFileName("../temp/model_prob_result1.dat");
+    bvpode_mp1.Solve();
 
-    Vector v(12);
-    std::cout << v.GetSize() << std::endl;
+    SecondOrderOde ode_mp2(1.0, 3.0, -4.0, 
+                         model_prob_2_rhs, 
+                         0.0, M_PI);
+    BoundaryConditions bc_mp2;
+    bc_mp2.SetLhsNeumannBc(-5.0);
+    bc_mp2.SetRhsDirichletBc(4.0);
+
+    BvpOde bvpode_mp2(&ode_mp2, &bc_mp2, 1001);
+    bvpode_mp2.SetFileName("../temp/model_problem_results2.dat");
+    bvpode_mp2.Solve();
 
     return 0;
+
 }
+

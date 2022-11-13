@@ -1,19 +1,19 @@
 #include <cassert>
-#include "BoundaryConditions.hpp"   
+#include "BoundaryConditions.hpp"
 
 BoundaryConditions::BoundaryConditions()
 {
-    mLhsBcIsDirichlet = false;
-    mRhsBcIsDirichlet = false;
-    mLhsBcIsNeumann = false;
-    mRhsBcIsNeumann = false;
+   mLhsBcIsDirichlet = false;
+   mRhsBcIsDirichlet = false;
+   mLhsBcIsNeumann = false;
+   mRhsBcIsNeumann = false;
 }
 
 void BoundaryConditions::SetLhsDirichletBc(double lhsVale)
 {
-    assert(!mLhsBcIsNeumann);
-    mLhsBcIsDirichlet = true;
-    mLhsBcValue = mLhsBcValue;
+   assert(!mLhsBcIsNeumann);
+   mLhsBcIsDirichlet = true;
+   mLhsBcValue = mLhsBcValue;
 }
 
 void BoundaryConditions::SetRhsDirichletBc(double rhsValue)
@@ -31,10 +31,9 @@ void BoundaryConditions::SetLhsNeumannBc(double lhsDerivValue)
 }
 
 void BoundaryConditions::
-          SetRhsNeumannBc(double rhsDerivValue)
+    SetRhsNeumannBc(double rhsDerivValue)
 {
    assert(!mRhsBcIsDirichlet);
    mRhsBcIsNeumann = true;
    mRhsBcValue = rhsDerivValue;
 }
-

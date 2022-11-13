@@ -1,6 +1,9 @@
 # build
 [Bb][Uu][Ii][Ll][Dd]/
 
+# temp
+[Tt][Ee][Mm][Pp]/
+
 # vscode
 .vscode/
 !.vscode/settings.json
